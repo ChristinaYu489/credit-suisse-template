@@ -4,9 +4,10 @@ var router = Router();
 router.post('/', function (req, res) {
     var basket = req.body;
 
-    console.log("My result is--> %s", basket);
+    console.log(basket);
+    console.log(req.body);
     let body = 240;
-    res.send('240');
+    res.send('5000');
 });
 
 

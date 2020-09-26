@@ -32,7 +32,9 @@ function fullZero(arr) {
 
 
 router.post('/', function (req, res) {
-    var test = req.body["tests"];
+    var data = JSON.stringify(req.body);
+    console.log(data);
+    var test = data["tests"];
 
     let answer = {
         "answers": {}
@@ -89,6 +91,8 @@ router.post('/', function (req, res) {
             }
         }
     }
+    console.log(req,req.body)
+    console.log(tests);
     console.log(answer);
     res.send(answer);
 

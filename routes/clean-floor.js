@@ -40,7 +40,7 @@ router.post('/', function (req, res) {
     for (var i = 0; i <= 200; i++) {
         if (test[i] != undefined) {
 
-            // console.log("round %d", i);
+            console.log("round %d", i);
             answer.answers[i] = 0;
 
             let queue = [];
@@ -52,7 +52,7 @@ router.post('/', function (req, res) {
             }
             queue.push(node);
             while (queue.length > 0) {
-                // console.log(queue);
+                console.log(queue);
                 let start = queue.shift();
                 // console.log("on +", start);
                 if (start.pos > 0) {
@@ -68,7 +68,7 @@ router.post('/', function (req, res) {
                             move: start.move + 1,
                             arr: newArr
                         };
-                        // console.log("added- ", newNode);
+                        console.log("added- ", newNode);
                         queue.push(newNode)
                     }
                 }
@@ -85,7 +85,7 @@ router.post('/', function (req, res) {
                             move: start.move + 1,
                             arr: newArr
                         };
-                        // console.log("added+ ", newNode);
+                        console.log("added+ ", newNode);
                         queue.push(newNode)
                     }
                 }

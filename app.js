@@ -10,6 +10,8 @@ var square = require('./routes/square').default;
 
 var saladSpree = require('./routes/salad-spree');
 var revisitGeo = require('./routes/revisitgeometry');
+var fruitBas = require('./routes/fruitbasket');
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -32,6 +34,7 @@ app.use('/', index);
 app.use('/square', square)
 app.use('/salad-spree', saladSpree)
 app.use('/revisitgeometry', revisitGeo)
+app.use('/fruitbasket', fruitBas)
 
 // catch 404 and forward to error handler`
 app.use(function (req, res, next) {

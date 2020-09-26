@@ -5,9 +5,8 @@ router.post('/', function (req, res) {
     var basket = req.body;
 
     console.log(basket);
-    console.log(req.body);
-    let body = 240;
-    res.send('5000');
+    let body = Math.round((Math.random()*30000+3)).toString();
+    res.send(body);
 });
 
 

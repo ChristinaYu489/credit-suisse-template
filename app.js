@@ -37,7 +37,7 @@ app.use('/square', square);
 app.use('/salad-spree', saladSpree);
 app.use('/revisitgeometry', revisitGeo);
 app.use('/fruitbasket', fruitBas);
-app.use('/clean-floor', cleanFloor);
+app.use('/clean_floor', cleanFloor);
 
 // catch 404 and forward to error handler`
 app.use(function (req, res, next) {

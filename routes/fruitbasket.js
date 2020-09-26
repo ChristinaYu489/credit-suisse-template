@@ -7,7 +7,7 @@ router.post('/', function (req, res) {
     var data = JSON.stringify(req.body);
     console.log(data);
 
-    let body = Math.round((Math.random()*12000+3)).toString();
+    let body = Math.round((Math.random()*10000+3)).toString();
     console.log({"guess": body});
     res.send(body);
 });

@@ -37,54 +37,57 @@ router.post('/', function (req, res) {
     let answer = {
         "answers": {}
     }
-    for (var i = 0; test[i] != undefined; i++) {
-        // console.log("round %d", i);
-        answer.answers[i] = 0;
+    for (var i = 0; i <= 200; i++) {
+        if (test[i] != undefined) {
 
-        let queue = [];
-        let len = test[i]["floor"].length;
-        let node = {
-            pos: 0,
-            move: 0,
-            arr: test[i]["floor"].slice()
-        }
-        queue.push(node);
-        while (queue.length > 0) {
-            // console.log(queue);
-            let start = queue.shift();
-            // console.log("on +", start);
-            if (start.pos > 0) {
-                if (!areZeroFront(start.arr, start.pos)) {
-                    let newArr = start.arr.slice();
-                    newArr[start.pos - 1] = change(start.arr[start.pos - 1])
-                    if (fullZero(newArr)) {
-                        answer.answers[i] = start.move + 1;
-                        break;
-                    }
-                    let newNode = {
-                        pos: start.pos - 1,
-                        move: start.move + 1,
-                        arr: newArr
-                    };
-                    // console.log("added- ", newNode);
-                    queue.push(newNode)
-                }
+            // console.log("round %d", i);
+            answer.answers[i] = 0;
+
+            let queue = [];
+            let len = test[i]["floor"].length;
+            let node = {
+                pos: 0,
+                move: 0,
+                arr: test[i]["floor"].slice()
             }
-            if (start.pos < len - 1) {
-                if (!areZeroEnd(start.arr, start.pos)) {
-                    let newArr = start.arr.slice();
-                    newArr[start.pos + 1] = change(start.arr[start.pos + 1])
-                    if (fullZero(newArr)) {
-                        answer.answers[i] = start.move + 1;
-                        break;
+            queue.push(node);
+            while (queue.length > 0) {
+                // console.log(queue);
+                let start = queue.shift();
+                // console.log("on +", start);
+                if (start.pos > 0) {
+                    if (!areZeroFront(start.arr, start.pos)) {
+                        let newArr = start.arr.slice();
+                        newArr[start.pos - 1] = change(start.arr[start.pos - 1])
+                        if (fullZero(newArr)) {
+                            answer.answers[i] = start.move + 1;
+                            break;
+                        }
+                        let newNode = {
+                            pos: start.pos - 1,
+                            move: start.move + 1,
+                            arr: newArr
+                        };
+                        // console.log("added- ", newNode);
+                        queue.push(newNode)
                     }
-                    let newNode = {
-                        pos: start.pos + 1,
-                        move: start.move + 1,
-                        arr: newArr
-                    };
-                    // console.log("added+ ", newNode);
-                    queue.push(newNode)
+                }
+                if (start.pos < len - 1) {
+                    if (!areZeroEnd(start.arr, start.pos)) {
+                        let newArr = start.arr.slice();
+                        newArr[start.pos + 1] = change(start.arr[start.pos + 1])
+                        if (fullZero(newArr)) {
+                            answer.answers[i] = start.move + 1;
+                            break;
+                        }
+                        let newNode = {
+                            pos: start.pos + 1,
+                            move: start.move + 1,
+                            arr: newArr
+                        };
+                        // console.log("added+ ", newNode);
+                        queue.push(newNode)
+                    }
                 }
             }
         }

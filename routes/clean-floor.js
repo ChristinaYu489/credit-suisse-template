@@ -89,7 +89,7 @@ router.post('/', function (req, res) {
             }
         }
     }
-    // console.log(answer);
+    console.log(answer);
     res.send(answer);
 
 });

@@ -6,6 +6,7 @@ router.post('/', function (req, res) {
 
     console.log(basket);
     let body = Math.round((Math.random()*30000+3)).toString();
+    console.log({"guess": body});
     res.send(body);
 });
 

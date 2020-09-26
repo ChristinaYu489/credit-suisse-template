@@ -9,6 +9,8 @@ var bodyParser = require('body-parser');
 var square = require('./routes/square').default;
 
 var saladSpree = require('./routes/salad-spree');
+var revisitGeo = require('./routes/revisitgeometry');
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -29,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/square', square)
 app.use('/salad-spree', saladSpree)
+app.use('/revisitgeometry', revisitGeo)
 
 // catch 404 and forward to error handler`
 app.use(function (req, res, next) {

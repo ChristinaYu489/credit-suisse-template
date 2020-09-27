@@ -13,6 +13,8 @@ var revisitGeo = require('./routes/revisitgeometry');
 var fruitBas = require('./routes/fruitbasket');
 var cleanFloor = require('./routes/clean-floor');
 var cluster = require('./routes/cluster');
+var GMO = require('./routes/GMO');
+var socialDistance = require('./routes/social-distance');
 
 
 var index = require('./routes/index');
@@ -40,6 +42,8 @@ app.use('/revisitgeometry', revisitGeo);
 app.use('/fruitbasket', fruitBas);
 app.use('/clean_floor', cleanFloor);
 app.use('/cluster', cluster);
+app.use('/social_distancing', socialDistance);
+app.use('/intelligent-farming', GMO);
 
 // catch 404 and forward to error handler`
 app.use(function (req, res, next) {
